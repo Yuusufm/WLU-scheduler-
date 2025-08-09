@@ -17,7 +17,7 @@ WORKDIR /app
 COPY --from=build /workspace/target/*.jar /app/app.jar
 
 # Copy CSV so ExamService can read it by filename from working directory
-COPY "students.wlu.ca-Spring 2025 Waterloo Final Examination Schedule.csv" /app/
+COPY ["students.wlu.ca-Spring 2025 Waterloo Final Examination Schedule.csv", "/app/"]
 
 # Render (and many PaaS) provide PORT; Spring reads server.port=${PORT:8080}
 ENV JAVA_OPTS=""
